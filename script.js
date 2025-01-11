@@ -27,6 +27,46 @@ gsap.to(".contato", {
   transformOrigin: "50% 50%"
 });
 
+// gsap border change
+
+const icon2 = document.querySelector('#icon-2');
+
+icon2.addEventListener('mouseenter', () => {
+  gsap.to(icon2, {
+    borderRadius: '50%',
+    duration: 0.5,
+    ease: 'power1.inOut',
+  });
+});
+
+icon2.addEventListener('mouseleave', () => {
+  gsap.to(icon2, {
+    borderRadius: '20%',
+    duration: 0.5,
+    ease: 'power1.inOut',
+  });
+});
+
+// gsap color change
+
+const addtask = document.querySelector('#add-task-modal');
+
+addtask.addEventListener('mouseenter', () => {
+  gsap.to(addtask, {
+    backgroundColor: '#007553',
+    duration: 0.5,
+    ease: 'power1.inOut',
+  });
+});
+
+addtask.addEventListener('mouseleave', () => {
+  gsap.to(addtask, {
+    backgroundColor: '#EAE9B6',
+    duration: 0.5,
+    ease: 'power1.inOut',
+  });
+});
+
 // movement and loading
 
 function sleep(seconds) {
@@ -75,7 +115,8 @@ if (!isMobile()) {
     this.children[0].style.transform = 'translate3d(0px, 0px, 0px)';
   }));
 }
-//
+
+// modal funcions
 
 var modal = document.getElementById("modal");
 var btn = document.getElementById("add-task");
@@ -95,7 +136,7 @@ window.onclick = function (event) {
   }
 }
 
-//
+// add li to todo
 
 const todoInput = document.getElementById("todo-input");
 const addBtn = document.getElementById("add-task-modal");
@@ -153,44 +194,4 @@ todoList.addEventListener("click", function (event) {
     const todoText = liElement.firstChild.textContent.trim();
     delTodoToLocalStorage({ text: todoText }, liElement);
   }
-});
-
-//
-
-const icon2 = document.querySelector('#icon-2');
-
-icon2.addEventListener('mouseenter', () => {
-  gsap.to(icon2, {
-    borderRadius: '50%',
-    duration: 0.5,
-    ease: 'power1.inOut',
-  });
-});
-
-icon2.addEventListener('mouseleave', () => {
-  gsap.to(icon2, {
-    borderRadius: '20%',
-    duration: 0.5,
-    ease: 'power1.inOut',
-  });
-});
-
-//
-
-const addtask = document.querySelector('#add-task-modal');
-
-addtask.addEventListener('mouseenter', () => {
-  gsap.to(addtask, {
-    backgroundColor: '#007553',
-    duration: 0.5,
-    ease: 'power1.inOut',
-  });
-});
-
-addtask.addEventListener('mouseleave', () => {
-  gsap.to(addtask, {
-    backgroundColor: '#EAE9B6',
-    duration: 0.5,
-    ease: 'power1.inOut',
-  });
 });

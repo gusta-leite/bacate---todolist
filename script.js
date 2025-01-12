@@ -151,6 +151,17 @@ addBtn.addEventListener("click", addTodo);
 
 function addTodo() {
   const todoText = todoInput.value;
+
+  if (isMobile()) {
+    if (todoList.childElementCount >= 4) {
+      return;
+    }
+  } else {
+    if (todoList.childElementCount >= 8) {
+      return;
+    }
+  }
+
   if (todoText === "") {
     return;
   }
